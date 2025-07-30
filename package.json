@@ -1,0 +1,26 @@
+{
+    "name": "todo-app",
+    "version": "1.0.0",
+    "description": "Modern full-stack todo application with React, Node.js, and MongoDB",
+    "main": "index.js",
+    "scripts": {
+        "dev": "concurrently \"bun run server\" \"bun run client\"",
+        "server": "cd backend && bun run dev",
+        "client": "cd frontend && bun start",
+        "install-deps": "bun install && cd backend && bun install && cd ../frontend && bun install",
+        "build": "cd frontend && bun run build",
+        "start": "cd backend && bun start"
+    },
+    "keywords": [
+        "todo",
+        "react",
+        "nodejs",
+        "mongodb",
+        "full-stack"
+    ],
+    "author": "Todo App Developer",
+    "license": "MIT",
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    }
+}
