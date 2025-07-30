@@ -4,12 +4,14 @@
     "description": "Modern full-stack todo application with React, Node.js, and MongoDB",
     "main": "index.js",
     "scripts": {
-        "dev": "concurrently \"bun run server\" \"bun run client\"",
-        "server": "cd backend && bun run dev",
-        "client": "cd frontend && bun start",
-        "install-deps": "bun install && cd backend && bun install && cd ../frontend && bun install",
-        "build": "cd frontend && bun run build",
-        "start": "cd backend && bun start"
+        "dev": "concurrently \"npm run server\" \"npm run client\"",
+        "server": "cd backend && npm run dev",
+        "client": "cd frontend && npm run dev",
+        "install-deps": "npm install && cd backend && npm install && cd ../frontend && npm install",
+        "build": "cd frontend && npm run build",
+        "start": "cd backend && npm start",
+        "preview": "cd frontend && npm run preview",
+        "test": "cd frontend && npm run test"
     },
     "keywords": [
         "todo",

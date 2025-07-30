@@ -12,6 +12,7 @@ import TodoList from "./pages/TodoList";
 import Categories from "./pages/Categories";
 import Profile from "./pages/Profile";
 import LoadingScreen from "./components/UI/LoadingScreen";
+import ComponentHighlighter from "./components/DevTools/ComponentHighlighter";
 
 function App() {
 	const { user, loading } = useAuth();
@@ -64,6 +65,7 @@ function App() {
 					element={<Navigate to='/dashboard' replace />}
 				/>
 			</Routes>
+			<ComponentHighlighter />
 		</Layout>
 	);
 }
