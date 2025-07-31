@@ -22,7 +22,7 @@ const io = new Server(server, {
 	cors: {
 		origin:
 			process.env.NODE_ENV === "production"
-				? false
+				? ["https://todo-app-khaki-mu-62.vercel.app"]
 				: ["http://localhost:3000"],
 		credentials: true,
 	},
@@ -34,7 +34,7 @@ app.use(
 	cors({
 		origin:
 			process.env.NODE_ENV === "production"
-				? false
+				? ["https://todo-app-khaki-mu-62.vercel.app"]
 				: ["http://localhost:3000"],
 		credentials: true,
 	})
