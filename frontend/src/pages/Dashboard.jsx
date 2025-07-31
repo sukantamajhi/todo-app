@@ -85,7 +85,27 @@ const Dashboard = () => {
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.5 }}>
-			<Card>
+			<Card
+				sx={{
+					position: "relative",
+					overflow: "hidden",
+					"&::before": {
+						content: '""',
+						position: "absolute",
+						top: 0,
+						left: 0,
+						right: 0,
+						height: "4px",
+						background:
+							color === "primary"
+								? "linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%)"
+								: color === "secondary"
+								? "linear-gradient(135deg, #F59E0B 0%, #EF4444 100%)"
+								: color === "success"
+								? "linear-gradient(135deg, #10B981 0%, #3B82F6 100%)"
+								: "linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%)",
+					},
+				}}>
 				<CardContent>
 					<Box
 						sx={{
@@ -94,7 +114,10 @@ const Dashboard = () => {
 							justifyContent: "space-between",
 						}}>
 						<Box>
-							<Typography color='text.secondary' variant='body2'>
+							<Typography
+								color='text.secondary'
+								variant='body2'
+								sx={{ fontWeight: 600 }}>
 								{title}
 							</Typography>
 							<Typography
@@ -127,13 +150,26 @@ const Dashboard = () => {
 						</Box>
 						<Box
 							sx={{
-								bgcolor: `${color}.main`,
-								color: `${color}.contrastText`,
-								borderRadius: 2,
+								background:
+									color === "primary"
+										? "linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%)"
+										: color === "secondary"
+										? "linear-gradient(135deg, #F59E0B 0%, #EF4444 100%)"
+										: color === "success"
+										? "linear-gradient(135deg, #10B981 0%, #3B82F6 100%)"
+										: color === "warning"
+										? "linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%)"
+										: "linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%)",
+								color: "#ffffff",
+								borderRadius: 3,
 								p: 1.5,
 								display: "flex",
 								alignItems: "center",
 								justifyContent: "center",
+								boxShadow: "0 4px 14px rgba(0, 0, 0, 0.15)",
+								"& svg": {
+									fontSize: 28,
+								},
 							}}>
 							{icon}
 						</Box>

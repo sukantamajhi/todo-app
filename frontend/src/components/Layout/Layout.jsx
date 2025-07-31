@@ -205,7 +205,23 @@ const Layout = ({ children }) => {
 					width: { md: `calc(100% - ${drawerWidth}px)` },
 					mt: 8, // Account for AppBar height
 					minHeight: "calc(100vh - 64px)",
-					bgcolor: "background.default",
+					background: isDark
+						? "linear-gradient(135deg, #0F0F23 0%, #1A1A2E 50%, #16213E 100%)"
+						: "linear-gradient(135deg, #FAFBFF 0%, #F3F4F6 50%, #E5E7EB 100%)",
+					position: "relative",
+					"&::before": {
+						content: '""',
+						position: "absolute",
+						top: 0,
+						left: 0,
+						right: 0,
+						bottom: 0,
+						background: isDark
+							? "radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 70%)"
+							: "radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.05) 0%, transparent 70%)",
+						pointerEvents: "none",
+						zIndex: -1,
+					},
 				}}>
 				{children}
 			</Box>

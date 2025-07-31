@@ -90,13 +90,36 @@ const Sidebar = ({ onItemClick }) => {
 		<Box>
 			{/* Logo/Title */}
 			<Toolbar>
-				<Assignment sx={{ mr: 2, color: "primary.main" }} />
-				<Typography variant='h6' noWrap component='div'>
+				<Box
+					sx={{
+						background:
+							"linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%)",
+						borderRadius: 2,
+						p: 1,
+						mr: 2,
+						display: "flex",
+						alignItems: "center",
+						justifyContent: "center",
+					}}>
+					<Assignment sx={{ color: "#ffffff", fontSize: 24 }} />
+				</Box>
+				<Typography
+					variant='h6'
+					noWrap
+					component='div'
+					sx={{
+						fontWeight: 700,
+						background:
+							"linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%)",
+						WebkitBackgroundClip: "text",
+						WebkitTextFillColor: "transparent",
+						backgroundClip: "text",
+					}}>
 					Todo App
 				</Typography>
 			</Toolbar>
 
-			<Divider />
+			<Divider sx={{ borderColor: "rgba(139, 92, 246, 0.1)" }} />
 
 			{/* Quick Stats */}
 			{stats?.data && (
@@ -132,25 +155,39 @@ const Sidebar = ({ onItemClick }) => {
 				</Box>
 			)}
 
-			<Divider />
+			<Divider sx={{ borderColor: "rgba(139, 92, 246, 0.1)" }} />
 
 			{/* Navigation Menu */}
-			<List>
+			<List sx={{ px: 2 }}>
 				{menuItems.map((item) => (
-					<ListItem key={item.text} disablePadding>
+					<ListItem key={item.text} disablePadding sx={{ mb: 1 }}>
 						<ListItemButton
 							selected={location.pathname === item.path}
 							onClick={() => handleItemClick(item.path)}
 							sx={{
+								borderRadius: 2,
+								transition:
+									"all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
 								"&.Mui-selected": {
-									bgcolor: "primary.main",
-									color: "primary.contrastText",
+									background:
+										"linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%)",
+									color: "#ffffff",
+									boxShadow:
+										"0 4px 14px rgba(139, 92, 246, 0.3)",
 									"&:hover": {
-										bgcolor: "primary.dark",
+										background:
+											"linear-gradient(135deg, #7C3AED 0%, #0891B2 100%)",
+										transform: "translateY(-1px)",
+										boxShadow:
+											"0 6px 20px rgba(139, 92, 246, 0.4)",
 									},
 									"& .MuiListItemIcon-root": {
-										color: "primary.contrastText",
+										color: "#ffffff",
 									},
+								},
+								"&:hover": {
+									backgroundColor: "rgba(139, 92, 246, 0.1)",
+									transform: "translateX(4px)",
 								},
 							}}>
 							<ListItemIcon

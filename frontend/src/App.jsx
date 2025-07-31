@@ -27,7 +27,10 @@ function App() {
 			<Box
 				sx={{
 					minHeight: "100vh",
-					background: theme.palette.background.default,
+					background:
+						theme.palette.mode === "dark"
+							? "linear-gradient(135deg, #0F0F23 0%, #1A1A2E 50%, #16213E 100%)"
+							: "linear-gradient(135deg, #FAFBFF 0%, #F3F4F6 50%, #E5E7EB 100%)",
 				}}>
 				<Routes>
 					<Route path='/login' element={<Login />} />

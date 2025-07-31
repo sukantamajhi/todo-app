@@ -147,7 +147,22 @@ const TodoList = () => {
 			case "low":
 				return "success";
 			default:
-				return "default";
+				return "primary";
+		}
+	};
+
+	const getPriorityGradient = (priority) => {
+		switch (priority) {
+			case "critical":
+				return "linear-gradient(135deg, #F87171 0%, #DC2626 100%)";
+			case "high":
+				return "linear-gradient(135deg, #FBBF24 0%, #D97706 100%)";
+			case "medium":
+				return "linear-gradient(135deg, #3B82F6 0%, #2563EB 100%)";
+			case "low":
+				return "linear-gradient(135deg, #10B981 0%, #059669 100%)";
+			default:
+				return "linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%)";
 		}
 	};
 
@@ -167,11 +182,32 @@ const TodoList = () => {
 	return (
 		<Box>
 			{/* Header */}
-			<Box sx={{ mb: 4 }}>
-				<Typography variant='h4' gutterBottom>
+			<Box
+				sx={{
+					mb: 4,
+					p: 3,
+					borderRadius: 3,
+					background:
+						"linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%)",
+					border: "1px solid rgba(139, 92, 246, 0.2)",
+				}}>
+				<Typography
+					variant='h4'
+					gutterBottom
+					sx={{
+						fontWeight: 700,
+						background:
+							"linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%)",
+						WebkitBackgroundClip: "text",
+						WebkitTextFillColor: "transparent",
+						backgroundClip: "text",
+					}}>
 					My Todos
 				</Typography>
-				<Typography variant='body1' color='text.secondary'>
+				<Typography
+					variant='body1'
+					color='text.secondary'
+					sx={{ fontWeight: 500 }}>
 					Manage your tasks and stay organized
 				</Typography>
 			</Box>
@@ -322,16 +358,35 @@ const TodoList = () => {
 												bgcolor: todo.completed
 													? "action.hover"
 													: "inherit",
-												borderLeft: `4px solid ${
-													isOverdue(
+												borderRadius: 2,
+												mb: 1,
+												mx: 1,
+												position: "relative",
+												"&::before": {
+													content: '""',
+													position: "absolute",
+													left: 0,
+													top: 0,
+													bottom: 0,
+													width: "4px",
+													borderRadius: "4px 0 0 4px",
+													background: isOverdue(
 														todo.dueDate,
 														todo.completed
 													)
-														? "error.main"
-														: todo.category
-																?.color ||
-														  "primary.main"
-												}`,
+														? "linear-gradient(135deg, #F87171 0%, #DC2626 100%)"
+														: getPriorityGradient(
+																todo.priority
+														  ),
+												},
+												transition:
+													"all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+												"&:hover": {
+													transform:
+														"translateX(4px)",
+													boxShadow:
+														"0 4px 12px rgba(0, 0, 0, 0.1)",
+												},
 											}}>
 											{/* Checkbox */}
 											<ListItemIcon>
